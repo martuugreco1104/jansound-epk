@@ -789,26 +789,33 @@
     /* sub navigation tabs */
     .assets-tabs {
       display: flex;
-      gap: 0;
-      border: var(--border);
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 12px;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
     }
+    .assets-tabs::-webkit-scrollbar { height: 2px; }
+    .assets-tabs::-webkit-scrollbar-thumb { background: var(--grey-40); }
     .assets-tab {
+      flex: 0 0 auto;
       padding: 10px 22px;
       font-family: var(--ff-title);
       font-size: 0.58rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--grey-40);
-      border-right: var(--border);
+      border: 1px solid var(--white);
+      border-radius: 999px;
+      background: transparent;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .assets-tab:last-child { border-right: none; }
-    .assets-tab:hover { color: var(--white); background: rgba(255,255,255,0.04); }
-    .assets-tab.active { color: var(--white); background: rgba(255,255,255,0.07); }
+    .assets-tab:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+    .assets-tab.active { background: var(--white); color: var(--black); }
 
     /* RIDER TAB */
     .assets-panel { display: none; }
@@ -1389,7 +1396,37 @@
       .venue-row { display: flex; flex-direction: column; width: 100%; border-bottom: var(--border); }
     }
   </style>
-</head>
+
+    /* TRANSLATE WIDGET STYLES */
+    #google_translate_element select {
+      background: var(--black) !important;
+      color: var(--white) !important;
+      font-family: var(--ff-title) !important;
+      border: var(--border) !important;
+      padding: 4px 8px;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      outline: none;
+      cursor: pointer;
+    }
+    .goog-te-gadget { color: transparent !important; font-size: 0; }
+    .goog-te-gadget .goog-te-combo { margin: 0; }
+    .goog-logo-link { display: none !important; }
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+        scrollbar-width: thin; /* Firefox */
+      }
+      .nav-links::-webkit-scrollbar { height: 2px; }
+      .nav-links::-webkit-scrollbar-thumb { background: var(--grey-40); }
+    }
+  </head>
 <body>
 
   <!-- ════════════════════════════════════════
@@ -1405,8 +1442,11 @@
       <a href="#assets"  id="link-assets">ASSETS</a>
       <a href="#contact" id="link-contact">CONTACT</a>
     </nav>
-    <div class="nav-epk-badge">
-      <div class="epk-pill">EPK 2026</div>
+    <div class="nav-utils" style="display:flex; align-items:center; gap: 16px;">
+      <div id="google_translate_element"></div>
+      <div class="nav-epk-badge">
+        <div class="epk-pill">EPK 2026</div>
+      </div>
     </div>
   </nav>
 
@@ -1437,7 +1477,7 @@
                style="width:100%;max-width:520px;height:auto;display:block;filter:brightness(1);" />
         </h1>
 
-        <span class="hero-slash"></span>
+        
         <p class="hero-subtitle">DJ &amp; MUSIC PRODUCER</p>
 
         <div class="hero-meta-grid">
@@ -1912,20 +1952,18 @@
             </div>
             <span class="contact-link-arrow">→</span>
           </a>
-          <a href="https://soundcloud.com/jansoundarg" target="_blank" class="contact-link-row" style="text-decoration:none;">
+          <div class="contact-link-row" style="text-decoration:none; cursor:default;">
             <div>
-              <div class="contact-link-label">SOUNDCLOUD</div>
-              <div class="contact-link-val">SOUNDCLOUD.COM/JANSOUNDARG</div>
+              <div class="contact-link-label">CORREO DIVERGENTE AGENCY</div>
+              <div class="contact-link-val">PENDIENTE</div>
             </div>
-            <span class="contact-link-arrow">→</span>
-          </a>
-          <a href="https://www.instagram.com/jansound__/" target="_blank" class="contact-link-row" style="text-decoration:none;">
+          </div>
+          <div class="contact-link-row" style="text-decoration:none; cursor:default;">
             <div>
-              <div class="contact-link-label">INSTAGRAM</div>
-              <div class="contact-link-val">@JANSOUND__</div>
+              <div class="contact-link-label">TELÉFONO DIVERGENTE AGENCY</div>
+              <div class="contact-link-val">PENDIENTE</div>
             </div>
-            <span class="contact-link-arrow">→</span>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -1941,9 +1979,9 @@
               <div class="social-platform">INSTAGRAM</div>
               <div class="social-handle">@JANSOUND__</div>
             </a>
-            <a href="https://ra.co/dj/jansound" target="_blank" class="social-card" style="text-decoration:none;">
-              <div class="social-platform">RESIDENT ADVISOR</div>
-              <div class="social-handle">JANSØUND</div>
+            <a href="https://www.youtube.com/@jansoundmusicar" target="_blank" class="social-card" style="text-decoration:none;">
+              <div class="social-platform">YOUTUBE</div>
+              <div class="social-handle">@JANSOUNDMUSICAR</div>
             </a>
             <a href="https://www.instagram.com/divergente.agency/" target="_blank" class="social-card" style="text-decoration:none;">
               <div class="social-platform">DIVERGENTE AGENCY</div>
@@ -2033,5 +2071,13 @@
       if (el) sectionObserver.observe(el);
     });
   </script>
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,pt,fr,de,it'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
