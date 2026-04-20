@@ -1349,9 +1349,9 @@
         max-width: 300px; 
         aspect-ratio: 4/5; 
         min-height: auto; 
-        margin: 0 auto 32px auto; 
+        margin: 0 0 32px 0; /* Aligned to left */
         overflow: hidden; 
-        order: -1; /* Mueve la imagen al principio en mobile */
+        order: -1; 
       }
       .bio-body { display: flex; flex-direction: column; } /* Asegurar que se apilen 100% full */
       .music-embeds { grid-template-columns: 1fr; }
@@ -1406,17 +1406,37 @@
         opacity: 1 !important;
       }
       
-      .venue-sidebar-rotate {
-        transform: none;
-        position: static;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        border-bottom: var(--border);
-        margin-bottom: 20px;
-        font-size: 0.8rem;
+      .assets-tabs {
+        justify-content: center;
+        padding-bottom: 15px;
       }
-      .venues-grid { display: block; }
+      
+      .venue-sidebar-rotate {
+        transform: rotate(-180deg);
+        writing-mode: vertical-rl;
+        position: static;
+        width: auto;
+        height: auto;
+        text-align: left;
+        padding: 0 10px 0 0;
+        border-bottom: none;
+        border-right: var(--border);
+        margin-bottom: 0;
+        font-size: 0.65rem;
+        white-space: nowrap;
+        color: var(--grey-40);
+        display: flex;
+        align-items: center;
+      }
+      .venues-grid { 
+        display: grid; 
+        grid-template-columns: auto 1fr; 
+        gap: 10px;
+        align-items: stretch;
+      }
+      .venue-list {
+        padding: 0 0 0 10px;
+      }
     }
   </style>
 
@@ -1446,7 +1466,7 @@
       <!-- PHOTO COLUMN -->
       <div class="hero-photo-col">
         <img
-          src="assets/img/fotos-estudio-2.jpeg"
+          src="assets/img/portada.JPEG"
           alt="JANSØUND — DJ & Music Producer"
           style="object-fit:cover;object-position:center;background:#000;" />
         <div class="hero-photo-overlay"></div>
