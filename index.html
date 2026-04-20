@@ -1346,15 +1346,15 @@
       .bio-photo-panel { 
         grid-column: auto; 
         width: 100%; 
-        max-width: 300px; 
+        max-width: 280px; /* Adjusted for better mobile proportion */
         aspect-ratio: 4/5; 
         min-height: auto; 
         margin: 0 0 32px 0; /* Aligned to left */
         overflow: hidden; 
         order: -1; 
       }
-      .bio-body { display: flex; flex-direction: column; } /* Asegurar que se apilen 100% full */
-      .music-embeds { grid-template-columns: 1fr; }
+      .bio-body { display: flex; flex-direction: column; } 
+    .music-embeds { grid-template-columns: 1fr; }
       .embed-cell { border-right: none; border-bottom: var(--border); padding: 0 0 24px; }
       .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 400px; }
       .gi-video,.gi-foto1,.gi-foto2 { grid-column: auto; grid-row: auto; }
@@ -1607,7 +1607,7 @@
       <!-- PHOTO PANEL -->
       <div class="bio-photo-panel">
         <img
-          src="assets/img/portada.png"
+          src="assets/img/about.png"
           alt="JANSØUND performing"
           class="bio-photo-img" />
       </div>
