@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/vermin-vibes" rel="stylesheet" />
   <style>
     /* ═══════════════════════════════════════════
        DESIGN SYSTEM — JANSØUND EPK
@@ -28,7 +29,7 @@
       --border-bright: 1px solid rgba(255,255,255,0.55);
       --ff-title: 'Space Mono', 'Courier New', monospace;
       --ff-body:  'Space Grotesk', 'Helvetica Neue', sans-serif;
-      --nav-h: 52px;
+      --nav-h: 64px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,6 +45,19 @@
       overflow-x: hidden;
     }
 
+
+    /* Additional Styles */
+    .header-logo {
+      height: 48px;
+      width: auto;
+      filter: brightness(1);
+      transition: height 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 28px;
+      }
+    }
     /* ── GRAIN OVERLAY ── */
     body::before {
       content: '';
@@ -69,7 +83,8 @@
       line-height: 0.92;
       letter-spacing: -0.02em;
       text-transform: uppercase;
-    }
+    
+      font-family: 'Vermin Vibes', var(--ff-title);}
     .t-section {
       font-family: var(--ff-title);
       font-weight: 700;
@@ -77,7 +92,8 @@
       line-height: 1;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-    }
+    
+      font-family: 'Vermin Vibes', var(--ff-title);}
     .t-label {
       font-family: var(--ff-title);
       font-weight: 700;
@@ -197,15 +213,20 @@
        SECTION 01 — HERO
     ══════════════════════════════════════════ */
     #hero {
-      display: grid;
-      grid-template-rows: 1fr auto;
+      display: flex;
+      flex-direction: column;
       background: var(--black);
+      height: 100vh;
+      min-height: 0;
+      padding-top: var(--nav-h);
+      box-sizing: border-box;
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: 5fr 7fr;
-      min-height: calc(100vh - var(--nav-h));
+      flex: 1;
+      min-height: 0;
     }
 
     /* LEFT COLUMN — artist photo */
@@ -246,9 +267,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 60px 60px 60px 64px;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
       position: relative;
     }
+    .hero-eyebrow { justify-content: center; }
     .hero-eyebrow {
       font-family: var(--ff-title);
       font-size: 0.58rem;
@@ -271,14 +295,15 @@
     .hero-title-col .t-hero {
       line-height: 0.88;
       margin-bottom: 32px;
-    }
+    
+      font-family: 'Vermin Vibes', var(--ff-title);}
 
     .hero-slash {
       display: block;
       width: 48px;
       height: 2px;
       background: var(--white);
-      margin-bottom: 20px;
+      margin: 0 auto 20px auto;
     }
     .hero-subtitle {
       font-family: var(--ff-title);
@@ -467,7 +492,7 @@
       grid-column: 2 / 4;
       grid-row: 3;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     .bio-stat {
       padding: 32px 36px;
@@ -698,16 +723,30 @@
       transition: transform 0.55s ease, filter 0.55s ease;
     }
     /* mosaic layout */
-    .gi-1 { grid-column: 1 / 8;  grid-row: 1 / 3; }
-    .gi-2 { grid-column: 8 / 13; grid-row: 1; }
-    .gi-3 { grid-column: 8 / 13; grid-row: 2; }
+    .gi-3 { grid-column: 1 / 8;  grid-row: 1 / 3; }
+    .gi-1 { grid-column: 8 / 13; grid-row: 1; }
+    .gi-2 { grid-column: 8 / 13; grid-row: 2; }
 
     .gallery-item-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%);
       opacity: 0;
       transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-item-title {
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+      text-align: center;
+      color: var(--white);
+    }
+    .gallery-item:hover .gallery-item-title {
+      transform: translateY(0);
     }
     .gallery-item:hover .gallery-item-overlay { opacity: 1; }
 
@@ -991,7 +1030,9 @@
       gap: 20px;
       padding: 20px 0;
       border-bottom: var(--border);
+      transition: background 0.2s;
     }
+    a.venue-row:hover { background: rgba(255,255,255,0.03); }
     .venue-row:last-child { border-bottom: none; }
     .venue-name {
       font-family: var(--ff-title);
@@ -1047,7 +1088,7 @@
     /* HOSPITALITY TAB */
     .hospitality-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
     .hosp-col {
       padding: 52px 60px;
@@ -1114,7 +1155,7 @@
       justify-content: space-between;
     }
     .contact-headline {
-      font-family: var(--ff-title);
+      font-family: 'Vermin Vibes', var(--ff-title);
       font-size: clamp(2.2rem, 5vw, 4rem);
       font-weight: 700;
       line-height: 1;
@@ -1309,8 +1350,9 @@
       .venues-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo-col { min-height: 60vw; border-right: none; border-bottom: var(--border); }
+      .hero-inner { display: flex; flex-direction: column; }
+      .hero-photo-col { flex: 1; min-height: 48vh; border-right: none; border-bottom: var(--border); }
+      .hero-title-col { flex: unset; }
       .hero-title-col { padding: 40px 28px; }
       .hero-meta-grid { grid-template-columns: 1fr 1fr; }
       .bio-body { grid-template-columns: 1fr; }
@@ -1338,7 +1380,7 @@
        NAVIGATION
   ════════════════════════════════════════ -->
   <nav id="nav">
-    <div class="nav-logo"><img src="logo jansound.png" alt="JANSØUND" style="height:28px;width:auto;filter:brightness(1);" /></div>
+    <div class="nav-logo" style="display:flex; align-items:center;"><img src="logo jansound.png" alt="DIVERGENTE AGENCY" class="header-logo" /></div>
     <nav class="nav-links">
       <a href="#hero"    id="link-hero">HOME</a>
       <a href="#bio"     id="link-bio">BIO</a>
@@ -1397,7 +1439,7 @@
           </div>
           <div class="hero-meta-cell">
             <div class="t-label">BOOKING</div>
-            <div class="meta-val">DA AGENCY</div>
+            <div class="meta-val">DIVERGENTE AGENCY</div>
           </div>
         </div>
       </div>
@@ -1411,7 +1453,7 @@
       </div>
       <div class="hero-footer-agency">
         <span class="agency-badge">REPRESENTED BY</span>
-        <img src="logo DA.png" alt="DA Booking Agency" style="height:30px;width:auto;opacity:0.85;" />
+        <img src="logo DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" />
         <span class="t-label">BOOKING AGENCY</span>
       </div>
     </div>
@@ -1499,9 +1541,9 @@
       <!-- PHOTO PANEL -->
       <div class="bio-photo-panel">
         <img
-          src="bio.png"
+          src="portada.png"
           alt="JANSØUND performing"
-          style="object-fit:contain;object-position:bottom center;background:#000;" />
+          class="bio-photo-img" />
       </div>
 
       <!-- STATS STRIP -->
@@ -1514,10 +1556,7 @@
           <div class="stat-num">5+</div>
           <div class="stat-label">Venues top en Buenos Aires</div>
         </div>
-        <div class="bio-stat">
-          <div class="stat-num">INT'L</div>
-          <div class="stat-label">B2B con referentes internacionales</div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -1552,77 +1591,6 @@
       <h2 class="t-section">SOUNDS</h2>
       <div class="grid-line-h music-header-line"></div>
       <div class="t-label">03 / MUSIC</div>
-    </div>
-
-    <div class="music-tracks">
-      <!-- TRACK 1 -->
-      <div class="track-row" id="track-1">
-        <div class="track-index">01</div>
-        <div class="track-thumb">
-          <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=200&q=80&fit=crop" alt="SetLive Futura" />
-        </div>
-        <div class="track-info">
-          <div class="track-artist">JANSØUND B2B CAMARGO</div>
-          <div class="track-name">SetLive Futura Jansound b2b Camargo 02/08</div>
-          <div class="track-waveform" aria-hidden="true">
-            <div class="track-waveform-bar" id="wf1"></div>
-          </div>
-        </div>
-        <div class="track-meta">
-          <div class="track-play-btn" aria-label="Play">
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6z"/></svg>
-          </div>
-          <div class="track-tag"># Techno</div>
-          <div class="track-duration">1:38:26</div>
-          <div class="t-label">▶ 244 · ▣ 3</div>
-        </div>
-      </div>
-
-      <!-- TRACK 2 -->
-      <div class="track-row" id="track-2">
-        <div class="track-index">02</div>
-        <div class="track-thumb">
-          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80&fit=crop" alt="Closing Set Rumble" />
-        </div>
-        <div class="track-info">
-          <div class="track-artist">JANSØUND</div>
-          <div class="track-name">Jansøund Closing Set @ Rumble Proyect</div>
-          <div class="track-waveform" aria-hidden="true">
-            <div class="track-waveform-bar" id="wf2"></div>
-          </div>
-        </div>
-        <div class="track-meta">
-          <div class="track-play-btn" aria-label="Play">
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6z"/></svg>
-          </div>
-          <div class="track-tag"># Melodic Techno</div>
-          <div class="track-duration">1:54:24</div>
-          <div class="t-label">▶ 209 · ▣ 2</div>
-        </div>
-      </div>
-
-      <!-- TRACK 3 -->
-      <div class="track-row" id="track-3">
-        <div class="track-index">03</div>
-        <div class="track-thumb">
-          <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=200&q=80&fit=crop" alt="Set Indie Piscis" />
-        </div>
-        <div class="track-info">
-          <div class="track-artist">JANSØUND</div>
-          <div class="track-name">Set Indie — 2M Piscis Season</div>
-          <div class="track-waveform" aria-hidden="true">
-            <div class="track-waveform-bar" id="wf3"></div>
-          </div>
-        </div>
-        <div class="track-meta">
-          <div class="track-play-btn" aria-label="Play">
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6-10 6z"/></svg>
-          </div>
-          <div class="track-tag"># Indie</div>
-          <div class="track-duration">1:31:47</div>
-          <div class="t-label">▶ 89 · ▣ 4</div>
-        </div>
-      </div>
     </div>
 
     <!-- EMBEDDED SOUNDCLOUD -->
@@ -1663,18 +1631,24 @@
       <div class="t-label" style="padding-bottom:6px;">04 / VISUAL</div>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item gi-1">
-        <img class="gallery-img" src="IMG_6822.JPEG" alt="DJ performance" />
-        <div class="gallery-item-overlay"></div>
-      </div>
-      <div class="gallery-item gi-2">
-        <img class="gallery-img" src="IMG_7119.JPEG" alt="DJ portrait" />
-        <div class="gallery-item-overlay"></div>
-      </div>
-      <div class="gallery-item gi-3">
-        <video class="gallery-img" src="IMG_7057.MP4" autoplay loop muted playsinline aria-label="Live performance video"></video>
-        <div class="gallery-item-overlay"></div>
-      </div>
+      <a href="https://drive.google.com/drive/folders/1MMNWnUKkcGbImRE58tBVL74JaX2gKcGs" target="_blank" class="gallery-item gi-1">
+        <img class="gallery-img" src="fotos estudio.jpeg" alt="Fotos Studio" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-title t-section">FOTOS STUDIO</div>
+        </div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1MIA0yE_-IvbCh6p2kpzCDFm9_5j-zG8S" target="_blank" class="gallery-item gi-2">
+        <img class="gallery-img" src="IMG_7119.JPEG" alt="Fotos Gigs" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-title t-section">FOTOS GIGS</div>
+        </div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1mzaKWy9LCsxWgZtZ67pmJ1jbvf9tWQbF" target="_blank" class="gallery-item gi-3">
+        <video class="gallery-img" src="IMG_7057.mp4" autoplay loop muted playsinline aria-label="Videos Gigs"></video>
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-title t-section">VIDEOS GIGS</div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1696,6 +1670,9 @@
         </button>
         <button class="assets-tab" id="tab-hosp" onclick="switchTab('hosp')">
           ♥ HOSPITALITY
+        </button>
+        <button class="assets-tab" id="tab-press" onclick="switchTab('press')">
+          ▤ PRESS ASSETS
         </button>
       </div>
     </div>
@@ -1798,31 +1775,26 @@
         <div class="venues-grid">
           <div class="venue-sidebar-rotate">SELECTED VENUES · BUENOS AIRES</div>
           <div class="venue-list">
-            <div class="venue-row">
+            <a href="https://www.instagram.com/crobarstudio/" target="_blank" class="venue-row" style="text-decoration:none;">
               <div class="venue-name">CROBAR</div>
-              <div class="venue-city">BUENOS AIRES</div>
               <div class="venue-badge">TECHNO</div>
-            </div>
-            <div class="venue-row">
+            </a>
+            <a href="https://www.instagram.com/elementsba/" target="_blank" class="venue-row" style="text-decoration:none;">
               <div class="venue-name">ELEMENTS</div>
-              <div class="venue-city">BUENOS AIRES</div>
               <div class="venue-badge">MELODIC</div>
-            </div>
-            <div class="venue-row">
+            </a>
+            <a href="https://www.instagram.com/futuraboilerclub/" target="_blank" class="venue-row" style="text-decoration:none;">
               <div class="venue-name">FUTURA</div>
-              <div class="venue-city">BUENOS AIRES</div>
               <div class="venue-badge">TECHNO</div>
-            </div>
-            <div class="venue-row">
+            </a>
+            <a href="https://www.instagram.com/lignee.ba/" target="_blank" class="venue-row" style="text-decoration:none;">
               <div class="venue-name">LIGNÉE</div>
-              <div class="venue-city">BUENOS AIRES</div>
               <div class="venue-badge">UNDERGROUND</div>
-            </div>
-            <div class="venue-row">
+            </a>
+            <a href="https://www.instagram.com/labiblioteca.ba/" target="_blank" class="venue-row" style="text-decoration:none;">
               <div class="venue-name">LA BIBLIOTECA</div>
-              <div class="venue-city">BUENOS AIRES</div>
               <div class="venue-badge">INDIE</div>
-            </div>
+            </a>
           </div>
           <div class="venue-logos-aside">
             <div class="venue-logo-row"><span class="venue-logo-text">CROBAR</span></div>
@@ -1853,18 +1825,46 @@
             </div>
             <div class="hosp-item">
               <div class="hosp-icon">▣</div>
-              <div class="hosp-item-name">WHISKY BOTTLE</div>
+              <div class="hosp-item-name">JÄGERMEISTER</div>
               <div class="hosp-qty">×1</div>
             </div>
           </div>
         </div>
-        <div class="hosp-col">
-          <div class="hosp-title">NOTAS ADICIONALES</div>
-          <p style="color:var(--grey-20);font-size:0.9rem;line-height:1.8;margin-top:8px;">
-            Todos los requerimientos deben estar disponibles en el camarín <strong style="color:var(--white);">30 minutos antes</strong> del set.
-            Para consultas adicionales de rider, contactar directamente con
-            <strong style="color:var(--white);">DA Booking Agency</strong>.
-          </p>
+
+      </div>
+    </div>
+    <!-- PRESS ASSETS PANEL -->
+    <div class="assets-panel" id="panel-press">
+      <div class="rider-layout">
+        <div class="rider-col">
+          <div class="rider-col-title">DOWNLOADABLE ASSETS</div>
+          <div class="contact-links" style="margin-top:0;">
+            <a href="https://drive.google.com/drive/folders/15WPQhIwZA5hgMNSKyIwvkeh1G5jA7u2T" target="_blank" class="contact-link-row" style="text-decoration:none;">
+              <div>
+                <div class="contact-link-label">AGENCIA</div>
+                <div class="contact-link-val">LOGOS DIVERGENTE AGENCY</div>
+              </div>
+              <span class="contact-link-arrow">→</span>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1359Krhye9fPn7pMttw2LFgnoZTzile3E" target="_blank" class="contact-link-row" style="text-decoration:none;">
+              <div>
+                <div class="contact-link-label">BRANDING</div>
+                <div class="contact-link-val">LOGOS JANSØUND</div>
+              </div>
+              <span class="contact-link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="rider-col">
+          <div class="rider-col-title">STYLE GUIDE</div>
+          <div class="t-label" style="margin-bottom: 8px;">TYPOGRAPHY</div>
+          <div class="t-section" style="font-size: 1.5rem; margin-bottom: 24px;">VERMIN VIBES</div>
+          <div class="t-label" style="margin-bottom: 8px;">COLOR PALETTE</div>
+          <div style="display: flex; gap: 12px;">
+            <div style="width: 40px; height: 40px; background: #000; border: 1px solid #333;"></div>
+            <div style="width: 40px; height: 40px; background: #fff; border: 1px solid #ddd;"></div>
+            <div style="width: 40px; height: 40px; background: #555;"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1881,31 +1881,31 @@
           <h2 class="contact-headline">LET'S MAKE<br>NOISE<br>TOGETHER</h2>
           <p class="contact-subline">
             Para bookings, consultas técnicas o prensa, contactá directamente
-            a través de DA Booking Agency o por los canales oficiales de JANSØUND.
+            a través de Divergente Agency o por los canales oficiales de JANSØUND.
           </p>
         </div>
         <div class="contact-links">
-          <div class="contact-link-row">
+          <a href="https://www.instagram.com/divergente.agency/" target="_blank" class="contact-link-row" style="text-decoration:none;">
             <div>
               <div class="contact-link-label">BOOKING AGENCY</div>
-              <div class="contact-link-val">DA BOOKING AGENCY</div>
+              <div class="contact-link-val">DIVERGENTE AGENCY</div>
             </div>
             <span class="contact-link-arrow">→</span>
-          </div>
-          <div class="contact-link-row">
+          </a>
+          <a href="https://soundcloud.com/jansoundarg" target="_blank" class="contact-link-row" style="text-decoration:none;">
             <div>
               <div class="contact-link-label">SOUNDCLOUD</div>
-              <div class="contact-link-val">SOUNDCLOUD.COM/JANSOUND-DJ</div>
+              <div class="contact-link-val">SOUNDCLOUD.COM/JANSOUNDARG</div>
             </div>
             <span class="contact-link-arrow">→</span>
-          </div>
-          <div class="contact-link-row">
+          </a>
+          <a href="https://www.instagram.com/jansound__/" target="_blank" class="contact-link-row" style="text-decoration:none;">
             <div>
               <div class="contact-link-label">INSTAGRAM</div>
-              <div class="contact-link-val">@JANSOUND.ARG</div>
+              <div class="contact-link-val">@JANSOUND__</div>
             </div>
             <span class="contact-link-arrow">→</span>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -1913,22 +1913,22 @@
         <div>
           <div class="contact-socials-title">PLATAFORMAS DIGITALES</div>
           <div class="social-grid">
-            <div class="social-card">
+            <a href="https://soundcloud.com/jansoundarg" target="_blank" class="social-card" style="text-decoration:none;">
               <div class="social-platform">SOUNDCLOUD</div>
-              <div class="social-handle">JANSOUND-DJ</div>
-            </div>
-            <div class="social-card">
+              <div class="social-handle">JANSOUNDARG</div>
+            </a>
+            <a href="https://www.instagram.com/jansound__/" target="_blank" class="social-card" style="text-decoration:none;">
               <div class="social-platform">INSTAGRAM</div>
-              <div class="social-handle">@JANSOUND.ARG</div>
-            </div>
-            <div class="social-card">
+              <div class="social-handle">@JANSOUND__</div>
+            </a>
+            <a href="https://ra.co/dj/jansound" target="_blank" class="social-card" style="text-decoration:none;">
               <div class="social-platform">RESIDENT ADVISOR</div>
               <div class="social-handle">JANSØUND</div>
-            </div>
-            <div class="social-card">
-              <div class="social-platform">DA BOOKING</div>
+            </a>
+            <a href="https://www.instagram.com/divergente.agency/" target="_blank" class="social-card" style="text-decoration:none;">
+              <div class="social-platform">DIVERGENTE AGENCY</div>
               <div class="social-handle">REPRESENTED</div>
-            </div>
+            </a>
           </div>
         </div>
         <div style="margin-top:auto;padding-top:32px;border-top:var(--border);">
@@ -1973,7 +1973,7 @@
        ASSETS TAB SWITCHER
     ═══════════════════════════════════════ */
     function switchTab(name) {
-      ['rider','venues','hosp'].forEach(t => {
+      ['rider','venues','hosp','press'].forEach(t => {
         document.getElementById('tab-' + t).classList.toggle('active', t === name);
         document.getElementById('panel-' + t).classList.toggle('active', t === name);
       });
