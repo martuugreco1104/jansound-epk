@@ -159,44 +159,21 @@
     .nav-links a {
       display: flex;
       align-items: center;
-      padding: 0 24px;
-      border-right: var(--border);
+      padding: 0 20px 12px; /* Set to 12px as per professional refactor request */
+      height: 100%;
+      box-sizing: border-box;
       font-family: var(--ff-title);
       font-size: 0.6rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--grey-20);
-      transition: color 0.2s, background 0.2s;
-      position: relative;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
     }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--white);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
-    }
-    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-links a.active { color: var(--white); }
-    .nav-links a.active::after { transform: scaleX(1); }
-    .nav-epk-badge {
-      display: flex;
-      align-items: center;
-      padding-left: 20px;
-    }
-    .epk-pill {
-      font-family: var(--ff-title);
-      font-size: 0.52rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      border: var(--border-bright);
-      padding: 4px 10px;
-      color: var(--grey-10);
-      white-space: nowrap;
+    .nav-links a:hover, .nav-links a.active { 
+      color: white; 
+      border-bottom-color: white;
     }
 
     /* ══════════════════════════════════════════
@@ -1414,20 +1391,9 @@
       }
       .nav-links::-webkit-scrollbar { display: none; }
       .nav-links a { 
-        padding: 0 8px; 
+        padding: 0 10px 14px; /* Increased bottom padding for mobile as well */
         font-size: 0.45rem; 
         border-right: none; 
-      }
-      .nav-utils {
-        gap: 8px;
-        padding: 0;
-      }
-      .lang-selector {
-        margin-right: 5px !important;
-        font-size: 1rem !important;
-      }
-      .nav-epk-badge {
-        padding-left: 10px;
       }
       
       .gallery-item-overlay { 
@@ -1461,7 +1427,7 @@
        NAVIGATION
   ════════════════════════════════════════ -->
   <nav id="nav">
-    <div class="nav-logo" style="display:flex; align-items:center;"><img src="logo-jansound.png" alt="DIVERGENTE AGENCY" class="header-logo" /></div>
+    <div class="nav-logo" style="display:flex; align-items:center;"><img src="assets/img/logo-jansound.png" alt="JANSØUND" class="header-logo" /></div>
     <nav class="nav-links">
       <a href="#hero"    id="link-hero">HOME</a>
       <a href="#bio"     id="link-bio">BIO</a>
@@ -1470,15 +1436,6 @@
       <a href="#assets"  id="link-assets">ASSETS</a>
       <a href="#contact" id="link-contact">CONTACT</a>
     </nav>
-    <div class="nav-utils" style="display:flex; align-items:center; gap: 12px;">
-      <div class="lang-selector" style="display:flex; gap:10px; font-size:1.1rem; margin-right: 15px;">
-        <a href="index.html" title="Español" style="text-decoration:none;">🇦🇷</a>
-        <a href="index-en.html" title="English" style="text-decoration:none;">🇺🇸</a>
-      </div>
-      <div class="nav-epk-badge">
-        <div class="epk-pill">EPK 2026</div>
-      </div>
-    </div>
   </nav>
 
   <!-- ════════════════════════════════════════
@@ -1489,9 +1446,9 @@
       <!-- PHOTO COLUMN -->
       <div class="hero-photo-col">
         <img
-          src="bio.png"
+          src="assets/img/fotos-estudio-2.jpeg"
           alt="JANSØUND — DJ & Music Producer"
-          style="object-fit:contain;object-position:bottom center;background:#000;" />
+          style="object-fit:cover;object-position:center;background:#000;" />
         <div class="hero-photo-overlay"></div>
         <div class="hero-photo-label">
           <span class="t-label">BUENOS AIRES, AR</span>
@@ -1504,7 +1461,7 @@
         <div class="hero-eyebrow">ELECTRONIC PRESS KIT · 2026</div>
 
         <h1 style="margin:0;line-height:0;">
-          <img src="logo-jansound.png" alt="JANSØUND"
+          <img src="assets/img/logo-jansound.png" alt="JANSØUND"
                style="width:100%;max-width:520px;height:auto;display:block;filter:brightness(1);" />
         </h1>
 
@@ -1540,7 +1497,7 @@
       </div>
       <div class="hero-footer-agency">
         <span class="agency-badge">REPRESENTED BY</span>
-        <img src="logo-DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" />
+        <img src="assets/img/logo-DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" />
         <span class="t-label">BOOKING AGENCY</span>
       </div>
     </div>
@@ -1630,7 +1587,7 @@
       <!-- PHOTO PANEL -->
       <div class="bio-photo-panel">
         <img
-          src="portada.png"
+          src="assets/img/portada.png"
           alt="JANSØUND performing"
           class="bio-photo-img" />
       </div>
@@ -1722,21 +1679,21 @@
     <div class="gallery-grid">
       <!-- 1. VIDEO (First in HTML for priority in mobile) -->
       <a href="https://drive.google.com/drive/folders/1mzaKWy9LCsxWgZtZ67pmJ1jbvf9tWQbF" target="_blank" class="gallery-item gi-video">
-        <video class="gallery-img" src="videos1-gigs.mp4" autoplay loop muted playsinline aria-label="Videos Gigs"></video>
+        <video class="gallery-img" src="assets/video/videos1-gigs.mp4" autoplay loop muted playsinline aria-label="Videos Gigs"></video>
         <div class="gallery-item-overlay">
           <div class="gallery-item-title t-section">VIDEOS GIGS</div>
         </div>
       </a>
       <!-- 2. PHOTOS STUDIO -->
       <a href="https://drive.google.com/drive/folders/1MMNWnUKkcGbImRE58tBVL74JaX2gKcGs" target="_blank" class="gallery-item gi-foto1">
-        <img class="gallery-img" src="fotos-estudio.jpeg" alt="Fotos Studio" />
+        <img class="gallery-img" src="assets/img/fotos-estudio.jpeg" alt="Fotos Studio" />
         <div class="gallery-item-overlay">
           <div class="gallery-item-title t-section">FOTOS STUDIO</div>
         </div>
       </a>
       <!-- 3. PHOTOS GIGS -->
       <a href="https://drive.google.com/drive/folders/1MIA0yE_-IvbCh6p2kpzCDFm9_5j-zG8S" target="_blank" class="gallery-item gi-foto2">
-        <img class="gallery-img" src="IMG_7119.JPEG" alt="Fotos Gigs" />
+        <img class="gallery-img" src="assets/img/IMG_7119.JPEG" alt="Fotos Gigs" />
         <div class="gallery-item-overlay">
           <div class="gallery-item-title t-section">FOTOS GIGS</div>
         </div>
@@ -2020,7 +1977,7 @@
         <div style="margin-top:auto;padding-top:32px;border-top:var(--border);">
           <div class="t-label" style="margin-bottom:8px;">BOOKING REPRESENTATION</div>
           <div style="font-family:var(--ff-title);font-size:2rem;font-weight:700;letter-spacing:-0.02em;">
-            DA
+            DIVERGENTE AGENCY
           </div>
           <div class="t-label" style="margin-top:4px;">BOOKING AGENCY · BUENOS AIRES</div>
         </div>
