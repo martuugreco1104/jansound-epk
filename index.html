@@ -132,24 +132,24 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       height: var(--nav-h);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-bottom: var(--border);
       background: rgba(0,0,0,0.85);
       backdrop-filter: blur(16px) saturate(0.2);
       -webkit-backdrop-filter: blur(16px) saturate(0.2);
+      padding: 0 20px;
     }
     .nav-logo {
       display: flex;
       align-items: center;
-      padding: 0 24px;
-      border-right: var(--border);
       font-family: var(--ff-title);
       font-weight: 700;
       font-size: 0.82rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      gap: 12px;
     }
     .nav-logo span { color: var(--white); }
     .nav-links {
@@ -186,8 +186,7 @@
     .nav-epk-badge {
       display: flex;
       align-items: center;
-      padding: 0 20px;
-      border-left: var(--border);
+      padding-left: 20px;
     }
     .epk-pill {
       font-family: var(--ff-title);
@@ -197,6 +196,7 @@
       border: var(--border-bright);
       padding: 4px 10px;
       color: var(--grey-10);
+      white-space: nowrap;
     }
 
     /* ══════════════════════════════════════════
@@ -740,7 +740,7 @@
     .gallery-item-title {
       font-size: 2rem;
       letter-spacing: 0.1em;
-      transform: translateY(20px);
+      transform: translateY(0);
       transition: transform 0.3s;
       text-align: center;
       color: var(--white);
@@ -1396,6 +1396,12 @@
       .venue-row { display: flex; flex-direction: column; width: 100%; border-bottom: var(--border); }
     }
   
+    .nav-utils {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     /* TRANSLATE WIDGET STYLES */
     #google_translate_element select {
       background: var(--black) !important;
@@ -1415,15 +1421,58 @@
     body { top: 0 !important; }
     
     @media (max-width: 768px) {
-      .nav-links {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding-bottom: 4px;
-        scrollbar-width: thin; /* Firefox */
+      #nav { 
+        height: auto; 
+        flex-direction: column; 
+        padding: 10px 0;
+        gap: 10px;
       }
-      .nav-links::-webkit-scrollbar { height: 2px; }
-      .nav-links::-webkit-scrollbar-thumb { background: var(--grey-40); }
+      .nav-logo { 
+        border-right: none; 
+        padding: 0;
+        justify-content: center;
+        width: 100%;
+      }
+      .header-logo { height: 32px; }
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        padding: 5px 0;
+      }
+      .nav-links a { 
+        padding: 8px 12px; 
+        font-size: 0.5rem; 
+        border-right: none; 
+      }
+      .nav-utils {
+        width: 100%;
+        justify-content: center;
+        padding: 0 15px;
+      }
+      
+      .gallery-item-overlay { 
+        opacity: 1 !important; 
+        background: rgba(0,0,0,0.6) !important; 
+      }
+      .gallery-item-title { 
+        transform: none !important; 
+        font-size: 1rem !important;
+        opacity: 1 !important;
+      }
+      
+      .venue-sidebar-rotate {
+        transform: none;
+        position: static;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: var(--border);
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+      }
+      .venues-grid { display: block; }
     }
   </style>
 
@@ -1858,11 +1907,6 @@
               <div class="venue-badge">INDIE</div>
             </a>
           </div>
-          
-            <div class="venue-logo-row"><span class="venue-logo-text">ELEMENTS</span></div>
-            <div class="venue-logo-row"><span class="venue-logo-text">FUTURA</span></div>
-            <div class="venue-logo-row"><span class="venue-logo-text">LIGNÉE</span></div>
-            <div class="venue-logo-row"><span class="venue-logo-text">BIBLIOTECA</span></div>
           </div>
         </div>
       </div>
