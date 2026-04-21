@@ -23,13 +23,13 @@
       --grey-70: #1c1c1c;
       --grey-60: #282828;
       --grey-40: #555555;
-      --grey-20: #999999;
-      --grey-10: #cccccc;
+      --grey-20: #cccccc;
+      --grey-10: #f0f0f0;
       --border:  1px solid rgba(255,255,255,0.12);
       --border-bright: 1px solid rgba(255,255,255,0.55);
       --ff-title: 'Space Mono', 'Courier New', monospace;
       --ff-body:  'Space Grotesk', 'Helvetica Neue', sans-serif;
-      --nav-h: 64px;
+      --nav-h: 80px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,14 +48,14 @@
 
     /* Additional Styles */
     .header-logo {
-      height: 56px;
+      height: 72px;
       width: auto;
       filter: brightness(1);
       transition: height 0.3s ease;
     }
     @media (max-width: 768px) {
       .header-logo {
-        height: 28px;
+        height: 44px;
       }
     }
     /* ── GRAIN OVERLAY ── */
@@ -139,7 +139,7 @@
       background: rgba(0,0,0,0.85);
       backdrop-filter: blur(16px) saturate(0.2);
       -webkit-backdrop-filter: blur(16px) saturate(0.2);
-      padding: 0 24px;
+      padding: 0 40px;
     }
     .nav-logo {
       display: flex;
@@ -159,11 +159,11 @@
     .nav-links a {
       display: flex;
       align-items: center;
-      padding: 0 20px 12px; /* Set to 12px as per professional refactor request */
+      padding: 0 24px 12px; /* Set to 12px as per professional refactor request */
       height: 100%;
       box-sizing: border-box;
       font-family: var(--ff-title);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--grey-20);
@@ -812,7 +812,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--grey-40);
+      color: var(--grey-20);
       margin-bottom: 32px;
       padding-bottom: 16px;
       border-bottom: var(--border);
@@ -966,7 +966,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--grey-40);
+      color: var(--grey-20);
       margin-bottom: 40px;
       padding-bottom: 16px;
       border-bottom: var(--border);
@@ -1084,7 +1084,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--grey-40);
+      color: var(--grey-20);
       margin-bottom: 32px;
       padding-bottom: 16px;
       border-bottom: var(--border);
@@ -1202,7 +1202,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--grey-40);
+      color: var(--grey-20);
       margin-bottom: 32px;
       padding-bottom: 16px;
       border-bottom: var(--border);
@@ -1337,7 +1337,8 @@
       .hero-inner { display: flex; flex-direction: column; }
       .hero-photo-col { flex: 1; min-height: 48vh; border-right: none; border-bottom: var(--border); }
       .hero-title-col { flex: unset; }
-      .hero-title-col { padding: 40px 28px; }
+      .hero-title-col { padding: 0 28px 40px; }
+      .hero-eyebrow { margin-bottom: 12px; }
       .hero-meta-grid { grid-template-columns: 1fr 1fr; }
       .bio-body { grid-template-columns: 1fr; }
       .bio-col { padding: 24px; border-right: none; border-bottom: var(--border); }
@@ -1365,7 +1366,7 @@
       .hosp-col { border-right: none; border-bottom: var(--border); }
       .nav-links a { padding: 0 14px; font-size: 0.52rem; }
       .music-header,.gallery-header,.assets-header,.bio-header,
-      .contact-left,.contact-right { padding-left: 28px; padding-right: 28px; }
+      .contact-left,.contact-right,.rider-col,.hosp-col,.venues-layout { padding-left: 28px; padding-right: 28px; }
       .contact-footer-strip { padding: 16px 28px; }
       .venue-list { padding: 0 20px; } 
       .venue-row { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 0; } 
@@ -1407,8 +1408,10 @@
       }
       
       .assets-tabs {
-        justify-content: center;
+        justify-content: flex-start;
         padding-bottom: 15px;
+        padding-left: 28px;
+        -ms-overflow-style: none;
       }
       
       .venue-sidebar-rotate {
@@ -1800,37 +1803,16 @@
         <!-- Diagram -->
         <div class="rider-col">
           <div class="rider-col-title">BOOTH CONFIGURATION</div>
-          <div class="rider-diagram">
-            <div class="rider-diagram-title">STANDARD SETUP — 2×CDJ + MIXER + CDJ</div>
-            <div class="equipment-visual">
-              <div class="eq-unit">
-                <div class="eq-cdj"></div>
-                <div class="eq-label">CDJ-3000<br>NXS</div>
-              </div>
-              <div class="eq-connector"></div>
-              <div class="eq-unit">
-                <div class="eq-mixer">
-                  <div class="eq-fader"></div>
-                  <div class="eq-fader"></div>
-                  <div class="eq-fader"></div>
-                </div>
-                <div class="eq-label">DJM-V10</div>
-              </div>
-              <div class="eq-connector"></div>
-              <div class="eq-unit">
-                <div class="eq-cdj"></div>
-                <div class="eq-label">CDJ-3000<br>NXS</div>
-              </div>
+          <div class="rider-diagram" style="padding:0; overflow:hidden; background-image: url('assets/img/descarga (2) 1.png'); background-size: cover; background-position: center; min-height: 350px; aspect-ratio: 16/10;">
+          </div>
+          <div style="width:100%; border-top:var(--border); padding-top:16px; display:flex; gap:16px; flex-wrap:wrap; margin-top:24px;">
+            <div>
+              <div class="t-label">SOUND SYSTEM</div>
+              <div style="font-family:var(--ff-title); font-size:0.75rem; margin-top:4px; text-transform:uppercase;">L-Acoustics · d&amp;b · Funktion One</div>
             </div>
-            <div style="width:100%;border-top:var(--border);padding-top:16px;display:flex;gap:16px;flex-wrap:wrap;">
-              <div>
-                <div class="t-label">SOUND SYSTEM</div>
-                <div style="font-family:var(--ff-title);font-size:0.75rem;margin-top:4px;text-transform:uppercase;">L-Acoustics · d&amp;b · Funktion One</div>
-              </div>
-              <div>
-                <div class="t-label">MONITORING</div>
-                <div style="font-family:var(--ff-title);font-size:0.75rem;margin-top:4px;text-transform:uppercase;">Stereo En Cabina</div>
-              </div>
+            <div>
+              <div class="t-label">MONITORING</div>
+              <div style="font-family:var(--ff-title); font-size:0.75rem; margin-top:4px; text-transform:uppercase;">Stereo En Cabina</div>
             </div>
           </div>
         </div>
