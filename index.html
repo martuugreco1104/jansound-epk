@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JANSØUND — DJ & Music Producer | EPK</title>
-  <meta name="description" content="Electronic Press Kit oficial de JANSØUND — DJ y Productor de Buenos Aires. Techno Industrial, Melodic Techno. Booking, Rider Técnico y música." />
+  <title>JANSØUND | Digital Identity</title>
+  <meta name="description" content="Official EPK: Bio, Music, Gigs & Technical Rider." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jansound.com/" />
+  <meta property="og:title" content="JANSØUND | Digital Identity" />
+  <meta property="og:description" content="Official EPK: Bio, Music, Gigs & Technical Rider." />
+  <meta property="og:image" content="assets/img/portada_web.webp" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://jansound.com/" />
+  <meta property="twitter:title" content="JANSØUND | Digital Identity" />
+  <meta property="twitter:description" content="Official EPK: Bio, Music, Gigs & Technical Rider." />
+  <meta property="twitter:image" content="assets/img/portada_web.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -248,9 +265,7 @@
       text-align: center;
       padding: 60px 20px;
       position: relative;
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/img/descarga (2) 1.png');
-      background-size: cover;
-      background-position: center;
+      background: var(--grey-90); /* Solid background to avoid duplicate logo in image */
     }
     .hero-eyebrow { justify-content: center; position: relative; z-index: 1; }
     .hero-eyebrow {
@@ -668,6 +683,28 @@
       overflow: hidden;
       border: var(--border);
       position: relative;
+    }
+    .hero-cta-btn {
+      display: inline-block;
+      margin-top: -20px;
+      margin-bottom: 40px;
+      padding: 14px 40px;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--ff-title);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: 1px solid var(--white);
+      position: relative;
+      z-index: 10;
+    }
+    .hero-cta-btn:hover {
+      background: transparent;
+      color: var(--white);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
     .embed-frame iframe {
       width: 100%;
@@ -1461,15 +1498,17 @@
        NAVIGATION
   ════════════════════════════════════════ -->
   <nav id="nav">
-    <div class="nav-logo" style="display:flex; align-items:center;"><img src="assets/img/logo-jansound.png" alt="JANSØUND" class="header-logo" /></div>
-    <nav class="nav-links">
+    <div class="nav-logo" style="display:flex; align-items:center;">
+      <img src="assets/img/logo-jansound-alt.webp" alt="JANSØUND" class="header-logo" loading="lazy" />
+    </div>
+    <div class="nav-links">
       <a href="#hero"    id="link-hero">HOME</a>
       <a href="#bio"     id="link-bio">BIO</a>
       <a href="#music"   id="link-music">MUSIC</a>
       <a href="#gallery" id="link-gallery">GALLERY</a>
       <a href="#assets"  id="link-assets">ASSETS</a>
       <a href="#contact" id="link-contact">CONTACT</a>
-    </nav>
+    </div>
   </nav>
 
   <!-- ════════════════════════════════════════
@@ -1480,9 +1519,10 @@
       <!-- PHOTO COLUMN -->
       <div class="hero-photo-col">
         <img
-          src="assets/img/portada.JPEG"
+          src="assets/img/portada_web.webp"
           alt="JANSØUND — DJ & Music Producer"
-          style="object-fit:cover;object-position:center;background:#000;" />
+          style="object-fit:cover;object-position:center;background:#000;"
+          loading="lazy" />
         <div class="hero-photo-overlay"></div>
         <div class="hero-photo-label">
           <span class="t-label">BUENOS AIRES, AR</span>
@@ -1494,13 +1534,17 @@
       <div class="hero-title-col">
         <div class="hero-eyebrow">ELECTRONIC PRESS KIT · 2026</div>
 
-        <h1 style="margin:0;line-height:0; position:relative; z-index:1;">
-          <img src="assets/img/logo-jansound.png" alt="JANSØUND"
-               style="width:100%;max-width:520px;height:auto;display:block;filter:brightness(1);" />
+        <h1 style="margin: 0; line-height:0; position:relative; z-index:1;">
+          <img src="assets/img/logo-jansound-alt.webp" alt="JANSØUND"
+               style="width:100%;max-width:520px;height:auto;display:block;filter:brightness(1);"
+               loading="lazy" />
         </h1>
 
-        
-        <p class="hero-subtitle">DJ &amp; MUSIC PRODUCER</p>
+        <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="hero-cta-btn" style="margin-top: 20px; margin-bottom: 40px;">
+          BOOKINGS HERE
+        </a>
+
+
 
         <div class="hero-meta-grid">
           <div class="hero-meta-cell">
@@ -1508,7 +1552,7 @@
             <div class="meta-val">BUENOS AIRES</div>
           </div>
           <div class="hero-meta-cell">
-            <div class="t-label">GENRE</div>
+            <div class="t-label">GÉNERO</div>
             <div class="meta-val">TECHNO · MELODIC</div>
           </div>
           <div class="hero-meta-cell">
@@ -1531,7 +1575,7 @@
       </div>
       <div class="hero-footer-agency">
         <span class="agency-badge">REPRESENTED BY</span>
-        <img src="assets/img/logo-DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" />
+        <img src="assets/img/logo-DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" loading="lazy" />
         <span class="t-label">BOOKING AGENCY</span>
       </div>
     </div>
@@ -1621,9 +1665,10 @@
       <!-- PHOTO PANEL -->
       <div class="bio-photo-panel">
         <img
-          src="assets/img/about.png"
+          src="assets/img/about.webp"
           alt="JANSØUND performing"
-          class="bio-photo-img" />
+          class="bio-photo-img"
+          loading="lazy" />
       </div>
 
       <!-- STATS STRIP -->
@@ -1678,7 +1723,7 @@
       <div class="embed-cell">
         <div class="embed-label">SOUNDCLOUD — SET 01</div>
         <div class="embed-frame">
-          <iframe scrolling="no" frameborder="no" allow="autoplay"
+          <iframe scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
             src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jansoundarg/jansound-set-03-2026&color=%23111111&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
           </iframe>
         </div>
@@ -1686,7 +1731,7 @@
       <div class="embed-cell">
         <div class="embed-label">SOUNDCLOUD — SET 02</div>
         <div class="embed-frame">
-          <iframe scrolling="no" frameborder="no" allow="autoplay"
+          <iframe scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
             src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jansoundarg/setlive-futura-jansound-b2b-camargo-1&color=%23111111&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
           </iframe>
         </div>
@@ -1694,7 +1739,7 @@
       <div class="embed-cell">
         <div class="embed-label">SOUNDCLOUD — SET 03</div>
         <div class="embed-frame">
-          <iframe scrolling="no" frameborder="no" allow="autoplay"
+          <iframe scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
             src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jansoundarg/jansound-closing-set-rumble-proyect&color=%23111111&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
           </iframe>
         </div>
@@ -1720,14 +1765,14 @@
       </a>
       <!-- 2. PHOTOS STUDIO -->
       <a href="https://drive.google.com/drive/folders/1MMNWnUKkcGbImRE58tBVL74JaX2gKcGs" target="_blank" class="gallery-item gi-foto1">
-        <img class="gallery-img" src="assets/img/fotos-estudio.jpeg" alt="Fotos Studio" />
+        <img class="gallery-img" src="assets/img/fotos-estudio.webp" alt="Fotos Studio" loading="lazy" />
         <div class="gallery-item-overlay">
           <div class="gallery-item-title t-section">FOTOS STUDIO</div>
         </div>
       </a>
       <!-- 3. PHOTOS GIGS -->
       <a href="https://drive.google.com/drive/folders/1MIA0yE_-IvbCh6p2kpzCDFm9_5j-zG8S" target="_blank" class="gallery-item gi-foto2">
-        <img class="gallery-img" src="assets/img/IMG_7119.JPEG" alt="Fotos Gigs" />
+        <img class="gallery-img" src="assets/img/fotos_gigs.webp" alt="Fotos Gigs" loading="lazy" />
         <div class="gallery-item-overlay">
           <div class="gallery-item-title t-section">FOTOS GIGS</div>
         </div>
@@ -1833,7 +1878,30 @@
     <!-- VENUES PANEL -->
     <div class="assets-panel" id="panel-venues">
       <div class="venues-layout">
-        <div class="venues-heading">TRAYECTORIA EN LA PISTA</div>
+        
+        <div class="venues-heading">UPCOMING GIGS / PRÓXIMAS FECHAS</div>
+        <div class="venue-list" style="margin-bottom: 64px;">
+          <div class="venue-row">
+            <div style="flex: 0 0 120px;" class="t-label">09.05.2026</div>
+            <div class="venue-name">BLOOSOM (BATHROOM SESSION)</div>
+            <div class="venue-city">BUENOS AIRES</div>
+            <a href="https://www.passline.com/eventos/bathroom-session-by-bloosom-high-feeling" target="_blank" class="venue-badge" style="color:white; border-color:white;">TICKETS</a>
+          </div>
+          <div class="venue-row">
+            <div style="flex: 0 0 120px;" class="t-label">06.06.2026</div>
+            <div class="venue-name">TBA</div>
+            <div class="venue-city">COMING SOON</div>
+            <div class="venue-badge">INFO SOON</div>
+          </div>
+          <div class="venue-row">
+            <div style="flex: 0 0 120px;" class="t-label">JULIO 2026</div>
+            <div class="venue-name">EUROPA TOUR</div>
+            <div class="venue-city">WORLDWIDE</div>
+            <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="venue-badge" style="background: white; color: black; border-color: white;">BOOKINGS</a>
+          </div>
+        </div>
+
+        <div class="venues-heading">PAST VENUES / TRAYECTORIA</div>
         <div class="venues-grid">
           <div class="venue-sidebar-rotate">SELECTED VENUES · BUENOS AIRES</div>
           <div class="venue-list">
@@ -1853,11 +1921,6 @@
               <div class="venue-name">LIGNÉE</div>
               <div class="venue-badge">UNDERGROUND</div>
             </a>
-            <a href="https://www.instagram.com/labiblioteca.ba/" target="_blank" class="venue-row" style="text-decoration:none;">
-              <div class="venue-name">LA BIBLIOTECA</div>
-              <div class="venue-badge">INDIE</div>
-            </a>
-          </div>
           </div>
         </div>
       </div>
@@ -1893,21 +1956,35 @@
     <div class="assets-panel" id="panel-press">
       <div class="rider-layout">
         <div class="rider-col">
-          <div class="rider-col-title">DOWNLOADABLE ASSETS</div>
+          <div class="rider-col-title">DOWNLOADABLE ASSETS (DIRECT)</div>
           <div class="contact-links" style="margin-top:0;">
-            <a href="https://drive.google.com/drive/folders/15WPQhIwZA5hgMNSKyIwvkeh1G5jA7u2T" target="_blank" class="contact-link-row" style="text-decoration:none;">
+            <a href="assets/img/portada_web.webp" download="portada-jansound.webp" class="contact-link-row" style="text-decoration:none; background: rgba(255,255,255,0.05);">
               <div>
-                <div class="contact-link-label">AGENCIA</div>
-                <div class="contact-link-val">LOGOS DIVERGENTE AGENCY</div>
+                <div class="contact-link-label">PRESS SHOT HD</div>
+                <div class="contact-link-val">DOWNLOAD .WEBP</div>
               </div>
-              <span class="contact-link-arrow">→</span>
+              <span class="contact-link-arrow">↓</span>
             </a>
-            <a href="https://drive.google.com/drive/folders/1359Krhye9fPn7pMttw2LFgnoZTzile3E" target="_blank" class="contact-link-row" style="text-decoration:none;">
+            <a href="assets/docs/rider-tecnico-jansound.pdf" download="rider-tecnico-jansound.pdf" class="contact-link-row" style="text-decoration:none; background: rgba(255,255,255,0.05);">
               <div>
-                <div class="contact-link-label">BRANDING</div>
-                <div class="contact-link-val">LOGOS JANSØUND</div>
+                <div class="contact-link-label">TECHNICAL RIDER</div>
+                <div class="contact-link-val">DOWNLOAD .PDF</div>
               </div>
-              <span class="contact-link-arrow">→</span>
+              <span class="contact-link-arrow">↓</span>
+            </a>
+            <a href="assets/docs/press-kit-jansound.pdf" download="press-kit-jansound.pdf" class="contact-link-row" style="text-decoration:none; background: rgba(255,255,255,0.05);">
+              <div>
+                <div class="contact-link-label">PRESS KIT</div>
+                <div class="contact-link-val">DOWNLOAD .PDF</div>
+              </div>
+              <span class="contact-link-arrow">↓</span>
+            </a>
+            <a href="#" download class="contact-link-row" style="text-decoration:none; background: rgba(255,255,255,0.05);">
+              <div>
+                <div class="contact-link-label">BIO / ONE-SHEET</div>
+                <div class="contact-link-val">DOWNLOAD .PDF</div>
+              </div>
+              <span class="contact-link-arrow">↓</span>
             </a>
           </div>
         </div>
@@ -1945,6 +2022,13 @@
             <div>
               <div class="contact-link-label">BOOKING AGENCY</div>
               <div class="contact-link-val">DIVERGENTE AGENCY</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="contact-link-row" style="text-decoration:none;">
+            <div>
+              <div class="contact-link-label">WHATSAPP BUSINESS</div>
+              <div class="contact-link-val">CONTACTO DIRECTO</div>
             </div>
             <span class="contact-link-arrow">→</span>
           </a>
