@@ -1412,7 +1412,7 @@ a.venue-row:hover { background: rgba(255,255,255,0.03); }
     z-index: 100;
   }
   .hero-eyebrow { margin-bottom: 12px; }
-  .hero-meta-grid { display: none; }
+  .hero-meta-grid { display: none !important; }
   .bio-body { display: flex; flex-direction: column; }
   .bio-col { padding: 24px; border-right: none; border-bottom: var(--border); }
   .bio-col:nth-child(3) { grid-column: auto; }
@@ -1447,6 +1447,11 @@ a.venue-row:hover { background: rgba(255,255,255,0.03); }
   @keyframes mobileSubtleScale {
     from { transform: scale(1.0); }
     to { transform: scale(1.08); }
+  }
+  .gi-video, .gi-foto1, .gi-foto2 { 
+    grid-column: auto !important; 
+    grid-row: auto !important; 
+    width: 100%;
   }
   .gi-video { aspect-ratio: 4/5; }
   .gi-foto1, .gi-foto2 { aspect-ratio: 1; }
