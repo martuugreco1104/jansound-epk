@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Vermin Vibes';
+    src: url('Vermin-Vibes.woff2') format('woff2'),
+        url('Vermin-Vibes.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

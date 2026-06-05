@@ -62,6 +62,11 @@
       <a href="#gallery" id="link-gallery">GALLERY</a>
       <a href="#assets"  id="link-assets">ASSETS</a>
       <a href="#contact" id="link-contact">CONTACT</a>
+      <div class="lang-selector">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </nav>
 
@@ -74,34 +79,30 @@
       <!-- PHOTO COLUMN -->
       <div class="hero-photo-col">
         <img
-          src="assets/img/portada_web.png"
+          src="assets/img/jansound-hero.png"
           alt="JANSØUND — DJ & Music Producer"
           style="object-fit:cover;object-position:center;background:#000;"
           loading="lazy" />
         <div class="hero-photo-overlay"></div>
-        <div class="hero-photo-label">
-          <span class="t-label">BUENOS AIRES, AR</span>
-          <span class="t-label" style="margin-top:2px;">EST. 2023</span>
-        </div>
       </div>
 
       <!-- TITLE COLUMN -->
       <div class="hero-title-col">
-        <div class="hero-eyebrow">ELECTRONIC PRESS KIT · 2026</div>
+        <div class="hero-eyebrow load-reveal" style="--delay: 1;">ELECTRONIC PRESS KIT · 2026</div>
 
-        <h1 style="margin: 0; line-height:0; position:relative; z-index:1;">
+        <h1 class="load-reveal" style="margin: 0; line-height:0; position:relative; z-index:1; --delay: 2;">
           <img src="assets/img/logo-jansound-alt.webp" alt="JANSØUND"
                style="width:100%;max-width:520px;height:auto;display:block;filter:brightness(1);"
                loading="lazy" />
         </h1>
 
-        <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="hero-cta-btn">
+        <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="hero-cta-btn load-reveal" style="--delay: 3;">
           BOOKINGS HERE
         </a>
 
 
 
-        <div class="hero-meta-grid">
+        <div class="hero-meta-grid load-reveal" style="--delay: 4;">
           <div class="hero-meta-cell">
             <div class="t-label">ORIGIN</div>
             <div class="meta-val">BUENOS AIRES</div>
@@ -123,11 +124,7 @@
     </div>
 
     <!-- BOTTOM BAR -->
-    <div class="hero-footer-bar">
-      <div class="hero-footer-scroll">
-        <span class="scroll-line"></span>
-        SCROLL TO EXPLORE
-      </div>
+    <div class="hero-footer-bar load-reveal" style="--delay: 5;">
       <div class="hero-footer-agency">
         <span class="agency-badge">REPRESENTED BY</span>
         <img src="assets/img/logo-DA.png" alt="Divergente Agency" style="height:30px;width:auto;opacity:0.85;" loading="lazy" />
@@ -176,14 +173,24 @@
       <div class="bio-col">
         <div class="bio-col-head">
           <span class="bio-col-icon">⚡</span>
-          <div class="bio-col-title">PERFIL Y TRAYECTORIA</div>
+          <div class="bio-col-title">
+            <span class="lang-es">PERFIL Y TRAYECTORIA</span>
+            <span class="lang-en">PROFILE &amp; TRAJECTORY</span>
+          </div>
         </div>
-        <p>
+        <p class="lang-es">
           Oriundo de <strong>Buenos Aires</strong>, JANSØUND es el producto artístico de Jano Farias,
           DJ y productor cuya evolución en la <strong>escena electrónica</strong> ha sido tan rápida
           como sólida. Desde su debut en <strong>2023</strong>, su crecimiento exponencial lo ha
           llevado a compartir cabina con referentes internacionales como <strong>Lehar</strong>,
           <strong>D3fai</strong>, <strong>TimiR</strong> y <strong>Cloz</strong>.
+        </p>
+        <p class="lang-en">
+          Born in <strong>Buenos Aires</strong>, JANSØUND is the artistic project of Jano Farias,
+          a DJ and producer whose evolution in the <strong>electronic scene</strong> has been as rapid
+          as it is solid. Since his debut in <strong>2023</strong>, his exponential growth has led
+          him to share the booth with international references such as <strong>Lehar</strong>,
+          <strong>D3fai</strong>, <strong>TimiR</strong>, and <strong>Cloz</strong>.
         </p>
       </div>
 
@@ -191,14 +198,23 @@
       <div class="bio-col">
         <div class="bio-col-head">
           <span class="bio-col-icon">▬▬▬</span>
-          <div class="bio-col-title">IDENTIDAD SONORA</div>
+          <div class="bio-col-title">
+            <span class="lang-es">IDENTIDAD SONORA</span>
+            <span class="lang-en">SONIC IDENTITY</span>
+          </div>
         </div>
-        <p>
+        <p class="lang-es">
           Su sonido es un equilibrio de contrastes: la fuerza <strong>industrial</strong> del
           <strong>Techno</strong> fusionada con la atmósfera etérea y vocales del
           <strong>Melodic Techno</strong>. Con influencias que van desde el rock hasta los géneros
           urbanos, JANSØUND diseña sets de alta personalidad donde el <strong>Groove</strong> es el
           hilo conductor y la conexión con la pista es la prioridad absoluta.
+        </p>
+        <p class="lang-en">
+          His sound is a balance of contrasts: the <strong>industrial</strong> strength of
+          <strong>Techno</strong> fused with the ethereal atmosphere and vocals of
+          <strong>Melodic Techno</strong>. With rock and urban influences, JANSØUND designs sets with high
+          personality, where the <strong>Groove</strong> is the main thread and connection with the dancefloor is the absolute priority.
         </p>
       </div>
 
@@ -206,12 +222,20 @@
       <div class="bio-col" style="border-top:var(--border);">
         <div class="bio-col-head">
           <span class="bio-col-icon">⊕</span>
-          <div class="bio-col-title">VISIÓN 2026</div>
+          <div class="bio-col-title">
+            <span class="lang-es">VISIÓN 2026</span>
+            <span class="lang-en">VISION 2026</span>
+          </div>
         </div>
-        <p>
+        <p class="lang-es">
           JANSØUND no solo mezcla; construye narrativas inmersivas. Para <strong>2026</strong>,
           su misión es clara: proyectar su energía industrial hacia la <strong>vanguardia global</strong>,
           llevando el pulso de la escena argentina a los escenarios más exigentes del mundo.
+        </p>
+        <p class="lang-en">
+          JANSØUND doesn't just mix; he builds immersive narratives. For <strong>2026</strong>,
+          his mission is clear: to project his industrial energy towards the <strong>global vanguard</strong>,
+          bringing the pulse of the Argentine scene to the world's most demanding stages.
         </p>
       </div>
 
@@ -230,13 +254,18 @@
       <div class="bio-stats reveal">
         <div class="bio-stat">
           <div class="stat-num">2023</div>
-          <div class="stat-label">Debut en la escena electrónica porteña</div>
+          <div class="stat-label">
+            <span class="lang-es">Debut en la escena electrónica porteña</span>
+            <span class="lang-en">Debut in Buenos Aires' electronic scene</span>
+          </div>
         </div>
         <div class="bio-stat">
           <div class="stat-num">5+</div>
-          <div class="stat-label">Venues top en Buenos Aires</div>
+          <div class="stat-label">
+            <span class="lang-es">Venues top en Buenos Aires</span>
+            <span class="lang-en">Top venues in Buenos Aires</span>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -384,7 +413,10 @@
             <div class="rider-item">
               <div class="rider-item-num">—</div>
               <div>
-                <div class="rider-item-name">MONITOREO ESTÉREO EN CABINA</div>
+                <div class="rider-item-name">
+                  <span class="lang-es">MONITOREO ESTÉREO EN CABINA</span>
+                  <span class="lang-en">BOOTH STEREO MONITORING</span>
+                </div>
                 <div class="rider-item-detail">Booth monitoring system</div>
               </div>
             </div>
@@ -423,7 +455,10 @@
             </div>
             <div>
               <div class="t-label">MONITORING</div>
-              <div style="font-family:var(--ff-title); font-size:0.75rem; margin-top:4px; text-transform:uppercase;">Stereo En Cabina</div>
+              <div style="font-family:var(--ff-title); font-size:0.75rem; margin-top:4px; text-transform:uppercase;">
+                <span class="lang-es">Stereo En Cabina</span>
+                <span class="lang-en">Stereo Booth</span>
+              </div>
             </div>
           </div>
         </div>
@@ -434,7 +469,10 @@
     <div class="assets-panel" id="panel-venues" role="tabpanel" aria-labelledby="tab-venues">
       <div class="venues-layout">
         
-        <div class="venues-heading">UPCOMING GIGS / PRÓXIMAS FECHAS</div>
+        <div class="venues-heading">
+          <span class="lang-es">PRÓXIMAS FECHAS</span>
+          <span class="lang-en">UPCOMING GIGS</span>
+        </div>
         <div class="venues-grid" style="margin-bottom: 64px;">
           <div class="venue-sidebar-rotate">TOUR DATES · 2026</div>
           <div class="venue-list">
@@ -445,7 +483,10 @@
               <a href="https://wearebombo.app.link/nKQJfZjfc3b" target="_blank" class="venue-badge" style="color:white; border-color:white;">TICKETS</a>
             </div>
             <div class="venue-row">
-              <div class="t-label">JULIO 2026</div>
+              <div class="t-label">
+                <span class="lang-es">JULIO 2026</span>
+                <span class="lang-en">JULY 2026</span>
+              </div>
               <div class="venue-name">EUROPA TOUR</div>
               <div class="venue-city">WORLDWIDE</div>
               <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="venue-badge" style="background: white; color: black; border-color: white;">BOOKINGS</a>
@@ -453,7 +494,10 @@
           </div>
         </div>
 
-        <div class="venues-heading">PAST VENUES / TRAYECTORIA</div>
+        <div class="venues-heading">
+          <span class="lang-es">TRAYECTORIA</span>
+          <span class="lang-en">PAST VENUES</span>
+        </div>
         <div class="venues-grid">
           <div class="venue-sidebar-rotate">SELECTED VENUES · BUENOS AIRES</div>
           <div class="venue-list">
@@ -482,7 +526,10 @@
     <div class="assets-panel" id="panel-hosp" role="tabpanel" aria-labelledby="tab-hosp">
       <div class="hospitality-layout">
         <div class="hosp-col">
-          <div class="hosp-title">REQUERIMIENTOS DE CABINA</div>
+          <div class="hosp-title">
+            <span class="lang-es">REQUERIMIENTOS DE CABINA</span>
+            <span class="lang-en">BOOTH REQUIREMENTS</span>
+          </div>
           <div class="hosp-list">
             <div class="hosp-item">
               <div class="hosp-icon">🍶</div>
@@ -577,8 +624,8 @@
           <div class="t-label">06 / CONTACT</div>
           <h2 class="contact-headline">LET'S MAKE<br>NOISE<br>TOGETHER</h2>
           <p class="contact-subline">
-            Para bookings, consultas técnicas o prensa, contactá directamente
-            a través de Divergente Agency o por los canales oficiales de JANSØUND.
+            <span class="lang-es">Para bookings, consultas técnicas o prensa, contactá directamente a través de Divergente Agency o por los canales oficiales de JANSØUND.</span>
+            <span class="lang-en">For bookings, technical inquiries, or press, contact directly through Divergente Agency or JANSØUND's official channels.</span>
           </p>
         </div>
         <div class="contact-links">
@@ -592,20 +639,29 @@
           <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="contact-link-row" style="text-decoration:none;">
             <div>
               <div class="contact-link-label">WHATSAPP BUSINESS</div>
-              <div class="contact-link-val">CONTACTO DIRECTO</div>
+              <div class="contact-link-val">
+                <span class="lang-es">CONTACTO DIRECTO</span>
+                <span class="lang-en">DIRECT CONTACT</span>
+              </div>
             </div>
             <span class="contact-link-arrow">→</span>
           </a>
           <a href="mailto:divergenteagency.booking@gmail.com" class="contact-link-row" style="text-decoration:none;">
             <div>
-              <div class="contact-link-label">CORREO DIVERGENTE AGENCY</div>
+              <div class="contact-link-label">
+                <span class="lang-es">CORREO DIVERGENTE AGENCY</span>
+                <span class="lang-en">DIVERGENTE AGENCY EMAIL</span>
+              </div>
               <div class="contact-link-val" style="text-transform:lowercase;">divergenteagency.booking@gmail.com</div>
             </div>
             <span class="contact-link-arrow">→</span>
           </a>
           <a href="mailto:jansoundd@gmail.com" class="contact-link-row" style="text-decoration:none;">
             <div>
-              <div class="contact-link-label">CORREO JANSØUND</div>
+              <div class="contact-link-label">
+                <span class="lang-es">CORREO JANSØUND</span>
+                <span class="lang-en">JANSØUND EMAIL</span>
+              </div>
               <div class="contact-link-val" style="text-transform:lowercase;">jansoundd@gmail.com</div>
             </div>
             <span class="contact-link-arrow">→</span>
@@ -615,7 +671,10 @@
 
       <div class="contact-right">
         <div>
-          <div class="contact-socials-title">PLATAFORMAS DIGITALES</div>
+          <div class="contact-socials-title">
+            <span class="lang-es">PLATAFORMAS DIGITALES</span>
+            <span class="lang-en">DIGITAL PLATFORMS</span>
+          </div>
           <div class="social-grid">
             <a href="https://soundcloud.com/jansoundarg" target="_blank" class="social-card" style="text-decoration:none;">
               <div class="social-platform">SOUNDCLOUD</div>
@@ -651,6 +710,13 @@
     </div>
   </section>
   </main>
+
+  <div class="custom-cursor-arrow">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0L16 7L9 9L7 16L0 0Z" stroke="white" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="custom-cursor-ring"></div>
 
   <script src="assets/js/main.js" defer></script>
 

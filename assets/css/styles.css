@@ -22,10 +22,17 @@
 
 @font-face {
   font-family: 'Vermin Vibes';
-  src: url('../fonts/vermin-vibes.ttf') format('truetype');
+  src: url('../fonts/Vermin-Vibes.woff2') format('woff2'),
+       url('../fonts/Vermin-Vibes.woff') format('woff'),
+       url('../fonts/vermin-vibes.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+/* Global Heading Font Fallback */
+h1, h2, h3, h4, h5, h6, .gallery-title {
+  font-family: 'Vermin Vibes', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1347,12 +1354,14 @@ a.venue-row:hover { background: rgba(255,255,255,0.03); }
 ══════════════════════════════════════════ */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px) skewY(1deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 .reveal.visible {
   opacity: 1;
-  transform: none;
+  transform: translateY(0) skewY(0);
 }
 
 /* ══════════════════════════════════════════
@@ -1507,5 +1516,184 @@ a.venue-row:hover { background: rgba(255,255,255,0.03); }
   }
   .rider-diagram {
     min-height: 280px !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   LANGUAGE SWITCHER & TRANSLATION SYSTEM
+   ══════════════════════════════════════════ */
+html[lang="es"] .lang-en { display: none !important; }
+html[lang="en"] .lang-es { display: none !important; }
+
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 24px;
+  font-family: var(--ff-title);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  padding-bottom: 12px;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--grey-40);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+  font-family: inherit;
+  font-weight: 700;
+}
+.lang-btn.active {
+  color: var(--white);
+}
+.lang-btn:hover {
+  color: var(--white);
+}
+.lang-separator {
+  color: var(--grey-60);
+}
+
+@media (max-width: 768px) {
+  .lang-selector {
+    margin-left: 10px;
+    padding: 0 10px 14px 15px;
+    font-size: 0.55rem;
+  }
+}
+
+/* ══════════════════════════════════════════
+   PREMIUM CUSTOM CURSOR
+   ══════════════════════════════════════════ */
+@media (hover: hover) {
+  html, body, a, button, select, input, textarea, .track-row, .social-card, .gallery-item {
+    cursor: none !important;
+  }
+
+  .custom-cursor-arrow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+
+  .custom-cursor-arrow svg path {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+
+  /* Hover state: fill arrow tip with white */
+  .custom-cursor-arrow.hover svg path {
+    fill: var(--white);
+  }
+
+  .custom-cursor-ring {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate3d(0, 0, 0) translate(-50%, -50%);
+    transition: background-color 0.3s ease, 
+                border-color 0.3s ease;
+    will-change: transform;
+  }
+
+  /* Hover state: fill ring with white and blend mode difference */
+  .custom-cursor-ring.hover {
+    background-color: var(--white);
+    border-color: var(--white);
+    mix-blend-mode: difference;
+    border-width: 0;
+  }
+}
+
+@media (hover: none) {
+  .custom-cursor-arrow, .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   HERO PHOTO CONTAINMENT OPTIMIZATION
+   ══════════════════════════════════════════ */
+.hero-photo-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+}
+.hero-photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (max-width: 768px) {
+  .hero-photo-col {
+    flex: unset !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 960 / 1080 !important;
+    min-height: auto !important;
+    border-right: none;
+    border-bottom: var(--border);
+  }
+  .hero-photo-col img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   UI CLEANUP ALIGNMENTS
+   ══════════════════════════════════════════ */
+.hero-footer-bar {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════
+   SEQUENTIAL INITIAL LOAD ANIMATION
+   ══════════════════════════════════════════ */
+.load-reveal {
+  opacity: 0;
+  transform: translateY(30px) skewY(1deg);
+  animation: loadRevealAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--delay) * 150ms);
+  will-change: transform, opacity;
+}
+
+@keyframes loadRevealAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+  }
+}
+
+/* Smooth zoom entrance for hero photo */
+.hero-photo-col img {
+  opacity: 0;
+  transform: scale(1.1);
+  animation: imgEntranceAnim 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 200ms;
+}
+
+@keyframes imgEntranceAnim {
+  to {
+    opacity: 1;
+    transform: scale(1.02);
   }
 }
