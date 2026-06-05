@@ -56,17 +56,24 @@
         <img src="assets/img/logo-jansound-alt.webp" alt="JANSØUND" class="header-logo" loading="lazy" />
       </a>
     </div>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-menu">
       <a href="#bio"     id="link-bio">BIO</a>
       <a href="#music"   id="link-music">MUSIC</a>
       <a href="#gallery" id="link-gallery">GALLERY</a>
       <a href="#assets"  id="link-assets">ASSETS</a>
       <a href="#contact" id="link-contact">CONTACT</a>
+    </div>
+    <div class="nav-controls">
       <div class="lang-selector">
         <button class="lang-btn active" data-lang="es" style="background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: 700; color: inherit; letter-spacing: inherit;">ES</button>
         <span class="lang-separator">/</span>
         <button class="lang-btn" data-lang="en" style="background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: 700; color: inherit; letter-spacing: inherit;">EN</button>
       </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </nav>
 
@@ -96,9 +103,11 @@
                loading="lazy" />
         </h1>
 
-        <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="hero-cta-btn load-reveal" style="--delay: 3;">
-          BOOKINGS HERE
-        </a>
+        <div class="hero-cta-wrapper load-reveal" style="--delay: 3;">
+          <a href="https://wa.me/5491138698026?text=Hola!%20Consulta%20Booking%20Jansound." target="_blank" class="hero-cta-btn">
+            BOOKINGS HERE
+          </a>
+        </div>
 
 
 

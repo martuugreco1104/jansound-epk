@@ -165,3 +165,30 @@ if (arrow && ring) {
     });
   });
 }
+
+/* ═══════════════════════════════════════
+   MOBILE MENU TOGGLE
+   ═══════════════════════════════════════ */
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+const navLinksList = document.querySelectorAll('.nav-links a');
+
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.contains('open');
+    navMenu.classList.toggle('open', !isOpen);
+    menuToggle.classList.toggle('open', !isOpen);
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden'; // Prevent scrolling background
+  });
+
+  // Close menu when clicking a link
+  navLinksList.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
